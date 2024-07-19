@@ -35,7 +35,7 @@ const replaceOne = async (id, body) => {
   if (!updatedRound) {
     throw new NotFoundError(`round with id ${id} not found`);
   }
-  console.log(updatedRound);
+
   return updatedRound;
 };
 

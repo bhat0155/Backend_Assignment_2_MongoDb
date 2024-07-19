@@ -2,7 +2,6 @@ const { Round } = require("../models/rounds");
 const roundServices = require("../services/roundServices");
 const { BadRequestError } = require("../utils/error");
 
-
 // create
 const create = async (req, res, next) => {
   try {
@@ -36,12 +35,13 @@ const getOne = async (req, res, next) => {
 // replaceOne
 const replaceOne = async (req, res, next) => {
   try {
-    console.log("ekam in round controller replace one");
     const { id } = req.params;
     const body = req.body;
 
     if (Object.keys(body).length === 0) {
-      throw new BadRequestError("Request body cannot be empty for replacement.");
+      throw new BadRequestError(
+        "Request body cannot be empty for replacement."
+      );
     }
 
     const updatedRound = await roundServices.replaceOne(id, body);
